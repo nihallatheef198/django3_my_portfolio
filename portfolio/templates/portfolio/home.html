@@ -1,0 +1,26 @@
+{% extends "base.html" %}
+{% load static %}
+{% block content %}
+    <div class="container">
+      <h1>Welcome To My World</h1>
+      <div class="row justify-content-center my-3">
+        <div class="col-5">
+          <img src="{% static "portfolio/batman.jpg" %}" class="img-fluid">
+        </div>
+      </div>
+      <div class="row justify-content-center mb-3">
+        <div class="col-md-8 text-center">
+          <h1 id="hometext" class="font-weight-bold">Full Stack Developer</h1>
+        </div>
+      </div>
+        <div class="row">
+            {% for content in contents %}
+            <div class="col-lg-4 col-md-6">
+              <h2>{{content.title}}</h2>
+              <p>{{content.description}}</p>
+              <a href={{content.url}}><img src={{content.image.url}} class="img-fluid mb-2"></a>
+            </div>
+            {% endfor %}
+        </div>
+    </div>
+{% endblock %}
